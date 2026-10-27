@@ -1,0 +1,23 @@
+{
+  "name": "@notes/shared",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Types, validation schemas and API contracts shared by the web app and the Lambda API.",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

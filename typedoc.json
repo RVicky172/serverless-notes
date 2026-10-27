@@ -1,0 +1,21 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "name": "Serverless Notes",
+  "entryPointStrategy": "packages",
+  "entryPoints": ["packages/shared", "apps/api", "apps/web"],
+  "packageOptions": {
+    "entryPointStrategy": "expand",
+    "entryPoints": ["src"],
+    "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/test/**", "**/main.tsx"],
+    "excludeExternals": true
+  },
+  "out": "docs/api",
+  "readme": "README.md",
+  "includeVersion": true,
+  "validation": {
+    "notExported": false,
+    "invalidLink": true,
+    "notDocumented": true
+  },
+  "ignoredHighlightLanguages": ["mermaid"]
+}

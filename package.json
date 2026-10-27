@@ -1,0 +1,43 @@
+{
+  "name": "serverless-notes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack serverless notes app on AWS (Lambda, API Gateway, Cognito, DynamoDB, S3, Terraform, React).",
+  "type": "module",
+  "packageManager": "pnpm@12.15.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "turbo run dev --filter=@notes/web",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "docs:build": "typedoc",
+    "check": "pnpm format:check && turbo run lint typecheck test build",
+    "infra:init": "terraform -chdir=infra/terraform init",
+    "infra:plan": "turbo run build --filter=@notes/api && terraform -chdir=infra/terraform plan",
+    "infra:apply": "turbo run build --filter=@notes/api && terraform -chdir=infra/terraform apply",
+    "infra:destroy": "terraform -chdir=infra/terraform destroy",
+    "env:web": "bash scripts/gen-env.sh",
+    "deploy:web": "bash scripts/deploy-web.sh",
+    "test:smoke": "bash scripts/smoke-test.sh"
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "eslint-plugin-jsdoc": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-react-refresh": "catalog:",
+    "globals": "catalog:",
+    "prettier": "catalog:",
+    "turbo": "catalog:",
+    "typedoc": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
+  }
+}

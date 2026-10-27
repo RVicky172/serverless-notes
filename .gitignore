@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+coverage/
+.turbo/
+*.tsbuildinfo
+
+# Generated API docs (pnpm docs)
+docs/api/
+
+# Local environment
+.env.local
+.env.*.local
+
+# Terraform
+infra/terraform/.terraform/
+infra/terraform/*.tfstate
+infra/terraform/*.tfstate.*
+infra/terraform/build/
+infra/terraform/*.tfvars
+!infra/terraform/example.tfvars
+
+# OS / editor
+.DS_Store
+*.log

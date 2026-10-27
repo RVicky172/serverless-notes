@@ -1,0 +1,32 @@
+{
+  "name": "@notes/api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AWS Lambda handlers for the notes REST API (API Gateway HTTP API, payload v2.0).",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.ts",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "catalog:",
+    "@aws-sdk/client-s3": "catalog:",
+    "@aws-sdk/lib-dynamodb": "catalog:",
+    "@aws-sdk/s3-request-presigner": "catalog:",
+    "@notes/shared": "workspace:*",
+    "uuid": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "catalog:",
+    "@types/node": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "aws-sdk-client-mock": "catalog:",
+    "esbuild": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}
