@@ -16,7 +16,8 @@ aws s3 sync "$ROOT/apps/web/dist" "s3://$(tf site_bucket)" --delete \
 aws s3 cp "$ROOT/apps/web/dist/index.html" "s3://$(tf site_bucket)/index.html" \
   --cache-control "no-cache"
 
-aws cloudfront create-invalidation --paths "/index.html" \
+# MSYS_NO_PATHCONV stops Git Bash on Windows from rewriting "/index.html" into a Windows path.
+MSYS_NO_PATHCONV=1 aws cloudfront create-invalidation --paths "/index.html" \
   --distribution-id "$(tf cloudfront_distribution_id)" >/dev/null
 
 echo "Deployed: $(tf site_url)"
